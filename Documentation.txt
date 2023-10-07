@@ -1,0 +1,18 @@
+Situation-
+A REST API ( https://app.ylytic.com/ylytic/test ) is exposed to fetch comments from a
+YouTube video. Each comment has 5 fields: at, author, like, reply, and text. These fields
+respectively mean the date of the comment, who posted the comment, number of likes of
+that comment, number of replies to that comment, and comment text.
+
+The goal is to create a search API on top of the existing API which will serve the below
+set of requirements:-
+ 1. Comments can be searched with author name (search_author field)
+    Eg-  http://127.0.0.1:5000/search?search_author=Fredrick
+ 2. Comments can be searched with a date range (at_from and at_to search fields)
+    Eg-  http://127.0.0.1:5000/search?at_from=01-01-2023&at_to=01-02-2023
+ 3. Comments can be searched with reply and like count range (like_from, like_to, reply_from, reply_to fields)
+    Eg-  http://127.0.0.1:5000/search?like_from=3&like_to=5&reply_from=2&reply_to=5
+ 4. Comments can be searched with a search string in the text field.(seach_text)
+    Eg-  http://127.0.0.1:5000/search?search_text=corresponding
+ 5. All the above searches can be done within the same request as well.
+    Eg-  http://127.0.0.1:5000/search?search_author=Fredrick&at_from=01-01-2023&at_to=01-02-2023&like_from=0&like_to=5&reply_from=0&reply_to=5&seach_text=economic
